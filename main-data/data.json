@@ -2,6 +2,7 @@
   "url": {
     "host": "http://localhost:3000",
     "checkStore": "/api/check-store",
-    "checkAllLinks": "/api/check-all-links"
+    "checkAllLinks": "/api/check-all-links",
+    "getAllLinks": "/api/get-all-links"
   }
 }

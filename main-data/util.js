@@ -2,17 +2,6 @@ const request = require('request');
 
 function getUrl(url) {
     return new Promise((resolve, reject) =>
-
-        /*
-        request.get(url)
-            .on('error', reject)
-            .on('response', response =>
-                response.statusCode === 200 ?
-                    resolve(response) :
-                    reject(response)
-            )
-*/
-
         request(url, (error, response, body) => {
             if (error) {
                 reject(error);
@@ -30,3 +19,15 @@ function getUrl(url) {
 }
 
 module.exports.getUrl = getUrl;
+
+/*
+return new Promise((resolve, reject) =>
+    request.get(url)
+        .on('error', reject)
+        .on('response', response =>
+            response.statusCode === 200 ?
+                resolve(response) :
+                reject(response)
+        )
+);
+*/

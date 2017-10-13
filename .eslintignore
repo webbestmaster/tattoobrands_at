@@ -11,6 +11,9 @@ node_modules
 # res
 /_res
 
+# backstop
+/backstop/report
+
 # example
 # /* eslint-disable no-unused-vars */
 # var React = require('react');
