@@ -1,0 +1,30 @@
+{
+  "name": "tattoobrands_at",
+  "version": "1.0.0",
+  "description": "tattoobrands AT",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "lint-fix": "eslint . --fix",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webbestmaster/tattoobrands_at.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/webbestmaster/tattoobrands_at/issues"
+  },
+  "homepage": "https://github.com/webbestmaster/tattoobrands_at#readme",
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.1",
+    "chai": "^4.1.2",
+    "eslint": "^4.8.0",
+    "mocha": "^4.0.1",
+    "mochawesome": "^2.3.1",
+    "request": "^2.83.0"
+  }
+}

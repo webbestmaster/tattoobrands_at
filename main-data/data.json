@@ -1,0 +1,6 @@
+{
+  "url": {
+    "host": "http://localhost:3000",
+    "checkStore": "/api/check-store"
+  }
+}
