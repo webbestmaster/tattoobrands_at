@@ -3,6 +3,13 @@
     "host": "http://localhost:3000",
     "checkStore": "/api/check-store",
     "checkAllLinks": "/api/check-all-links",
-    "getAllLinks": "/api/get-all-links"
+    "getAllLinks": "/api/get-all-links",
+    "staticPages": [
+      "/promo-products",
+      "/static-page/guarantee",
+      "/static-page/contacts",
+      "/static-page/discounts",
+      "/static-page/shipping-and-payment"
+    ]
   }
 }
