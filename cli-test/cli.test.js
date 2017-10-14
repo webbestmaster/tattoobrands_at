@@ -28,9 +28,12 @@ describe('cli tests', () => {
             .then(errors => assert.equal(errors.length, 0))
     );
 
+    console.warn(' ---> Enable test for Product links');
 
+/*
     it('check products', () =>
         checkProducts()
             .then(errors => assert.equal(errors.length, 0))
     ).timeout(60e3 * 5);
+*/
 });

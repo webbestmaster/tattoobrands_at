@@ -14,3 +14,6 @@ package-lock.json
 
 # backstop
 /backstop/report
+
+# cli test
+/cli-test/reports
