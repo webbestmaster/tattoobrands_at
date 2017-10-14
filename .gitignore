@@ -17,3 +17,6 @@ package-lock.json
 
 # cli test
 /cli-test/reports
+
+# se test
+/se-test/reports

@@ -17,6 +17,9 @@ node_modules
 # cli test
 /cli-test/reports
 
+# se test
+/se-test/reports
+
 # example
 # /* eslint-disable no-unused-vars */
 # var React = require('react');
