@@ -6,10 +6,11 @@ echo "Unbind all devices"
 
 ( exec "${pathToAdb}" forward --remove-all )
 
-numbers=(0)
+numbers=(0 1)
 
-deviceIds=(A3P4376F48D9)
-serverPorts=(8081)
+#deviceIds=(A3P4376F48D9)
+deviceIds=(emulator-5554 emulator-5556)
+serverPorts=(8081 8082)
 
 for index in "${numbers[@]}";
 do
