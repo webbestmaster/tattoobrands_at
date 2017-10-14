@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint .",
     "lint-fix": "eslint . --fix",
-    "test": "./cli-test.sh"
+    "test": "./cli-test.sh && node ./cli-test/perf-test.js"
   },
   "repository": {
     "type": "git",
@@ -23,7 +23,9 @@
     "babel-eslint": "^8.0.1",
     "backstopjs": "^3.0.28",
     "chai": "^4.1.2",
+    "cluster": "^0.7.7",
     "eslint": "^4.8.0",
+    "loadtest": "^2.3.0",
     "mocha": "^4.0.1",
     "mochawesome": "^2.3.1",
     "request": "^2.83.0"
