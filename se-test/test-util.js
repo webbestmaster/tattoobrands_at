@@ -2,19 +2,10 @@
 const fs = require('fs'); // eslint-disable-line id-length
 const dot = require('dot');
 
-const createTagGenerator = dot.template(
-    '<{{= it.tagName }}' +
-    '{{~it.attributeList :value:index}}' +
-    '{{= index % 2 ? (value + \'"\') : (\' \' + value + \'="\') }}' +
-    '{{~}}' +
-    '></{{= it.tagName }}>'
-);
+const createTagGenerator = dot.template('<{{= it.tagName }} {{= it.attributes }}></{{= it.tagName }}>');
 
 const util = {
-    createTag: (tagName, attributeList) => createTagGenerator({
-        tagName,
-        attributeList
-    }),
+    createTag: (tagName, attributes) => createTagGenerator({tagName, attributes}),
     detectOsName: () => {
         const platformName = process.platform;
 

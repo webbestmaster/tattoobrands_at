@@ -4,7 +4,6 @@ const util = require('./test-util');
 const seUtil = require('./se-util');
 const mainData = require('./../main-data/data.json');
 const addContext = require('mochawesome/addContext');
-
 const SeleniumServer = require('selenium-webdriver/remote').SeleniumServer;
 
 const PORT = 4444;
@@ -38,14 +37,14 @@ describe('Selenium test', function seleniumTestDescribe() {
             .withCapabilities({browserName: 'chrome'})
             .build();
 
-        return seUtil.setScreenSize(driver, 1024, 768);
+        return seUtil.screen.setSize(driver, 1024, 768);
     });
 
     afterEach(() => driver.quit());
 
     const now = Date.now();
 
-    it('Register', () => {
+    it('Register', function Register() {
         driver.get(SITE_URL);
 
         driver
@@ -60,10 +59,19 @@ describe('Selenium test', function seleniumTestDescribe() {
             .then(elem => elem.isDisplayed())
             .then(isDisplayed => assert(isDisplayed, 'Element is NOT displayed'));
 
+        seUtil.screen
+            .ofSelector(driver, '.header')
+            .then(image =>
+                addContext(this, {
+                    title: 'Header',
+                    value: util.createTag('img', 'src="' + image + '"')
+                })
+            );
+
         return driver.sleep(1000);
     });
 
-    it('Login', () => {
+    it('Login', function Login() {
         driver.get(SITE_URL);
 
         driver
