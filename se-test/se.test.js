@@ -1,19 +1,20 @@
-/* global describe, it, before, after, beforeEach, afterEach */
+/* global describe, it, before, after, beforeEach, afterEach, process */
 const {assert} = require('chai');
 const util = require('./test-util');
 const seUtil = require('./se-util');
 const mainData = require('./../main-data/data.json');
 const addContext = require('mochawesome/addContext');
-const SeleniumServer = require('selenium-webdriver/remote').SeleniumServer;
+const {SeleniumServer} = require('selenium-webdriver/remote');
+const DESKTOP_SERVER_PORT = 4444;
 
-const PORT = 4444;
+const SERVER_PORT = process.env.SERVER_PORT || DESKTOP_SERVER_PORT; // eslint-disable-line no-process-env
 const OS_NAME = util.detectOsName();
-
+const IS_MOBILE = SERVER_PORT !== DESKTOP_SERVER_PORT;
 const SITE_URL = mainData.url.host;
-const WEB_DRIVER_SERVER_URL = 'http://localhost:' + PORT + '/wd/hub';
+const WEB_DRIVER_SERVER_URL = 'http://localhost:' + SERVER_PORT + '/wd/hub';
 
 const server = new SeleniumServer('./driver/selenium-server-standalone-3.0.1.jar', {
-    port: PORT,
+    port: SERVER_PORT,
     jvmArgs: ['-Dwebdriver.chrome.driver=./driver/' + OS_NAME + '/chromedriver']
 });
 
@@ -26,7 +27,9 @@ describe('Selenium test', function seleniumTestDescribe() {
     // each test should be less than 10s
     this.timeout(25e3); // eslint-disable-line no-invalid-this
 
-    before(() => server.start());
+    if (!IS_MOBILE) {
+        before(() => server.start());
+    }
 
     after(() => server.stop());
 
@@ -37,7 +40,7 @@ describe('Selenium test', function seleniumTestDescribe() {
             .withCapabilities({browserName: 'chrome'})
             .build();
 
-        return seUtil.screen.setSize(driver, 1024, 768);
+        return IS_MOBILE || seUtil.screen.setSize(driver, 1024, 768);
     });
 
     afterEach(() => driver.quit());

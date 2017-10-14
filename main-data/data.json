@@ -1,6 +1,7 @@
 {
   "url": {
-    "host": "http://localhost:3000",
+    "host": "http://192.168.100.4:3000",
+    "_host": "http://localhost:3000",
     "checkStore": "/api/check-store",
     "checkAllLinks": "/api/check-all-links",
     "getAllLinks": "/api/get-all-links",
