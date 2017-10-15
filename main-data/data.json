@@ -1,6 +1,6 @@
 {
   "url": {
-    "host": "http://192.168.100.4:3000",
+    "host": "http://tattoobrands.by:3000",
     "_host": "http://localhost:3000",
     "checkStore": "/api/check-store",
     "checkAllLinks": "/api/check-all-links",

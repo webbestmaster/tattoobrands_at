@@ -8,7 +8,10 @@ const config = {
             name: 'desktop',
             width: 1024,
             height: 768
-        },
+        }
+
+        /*
+        ,
         {
             name: 'tablet',
             width: 786,
@@ -19,6 +22,7 @@ const config = {
             width: 320,
             height: 480
         }
+*/
     ],
     scenarios: [
         {
@@ -90,7 +94,7 @@ function getConfig() {
         config.scenarios = config.scenarios
             .concat(
                 categories.map(createCategoryScenario),
-                products.filter((product, ii) => !(ii % 50)).map(createProductScenario)
+                products.filter(productLink => productLink.indexOf('/product-id/') !== 0).map(createProductScenario)
             );
 
         return config;
