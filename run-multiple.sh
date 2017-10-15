@@ -6,16 +6,14 @@ echo "Unbind all devices"
 
 ( exec "${pathToAdb}" forward --remove-all )
 
-numbers=(0 1)
+deviceIds=(emulator-5558 emulator-5556)
+startPortNumber=8000
 
-#deviceIds=(A3P4376F48D9)
-deviceIds=(emulator-5554 emulator-5556)
-serverPorts=(8081 8082)
-
-for index in "${numbers[@]}";
+for deviceId in "${deviceIds[@]}";
 do
-    deviceId="${deviceIds[$index]}"
-    serverPort="${serverPorts[$index]}"
+
+    startPortNumber=$((startPortNumber + 1))
+    serverPort=$startPortNumber
 
     # bind device
     echo "Prepare device - deviceId: ${deviceId} to tcp: ${serverPort}"

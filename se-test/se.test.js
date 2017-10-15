@@ -24,17 +24,6 @@ const byCss = WebDriver.By.css;
 let driver = null;
 
 describe('Selenium test', function seleniumTestDescribe() {
-    // each test should be less than 25s
-
-    // TODO: see cli-test, do the same
-/*
-    it('check categories', () =>
-        checkCategories()
-            .then(errors => assert.equal(errors.length, 0))
-    ).timeout(5e3);
-*/
-    this.timeout(25e3); // eslint-disable-line no-invalid-this
-
     if (!IS_MOBILE) {
         before(() => server.start());
     }
@@ -80,7 +69,7 @@ describe('Selenium test', function seleniumTestDescribe() {
             );
 
         return driver.sleep(1000);
-    });
+    }).timeout(20e3);
 
     it('Login', function Login() {
         driver.get(SITE_URL);
@@ -98,5 +87,5 @@ describe('Selenium test', function seleniumTestDescribe() {
             .then(isDisplayed => assert(isDisplayed, 'Element is NOT displayed'));
 
         return driver.sleep(1000);
-    });
+    }).timeout(20e3);
 });
