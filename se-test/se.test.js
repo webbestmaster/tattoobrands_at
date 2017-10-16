@@ -37,7 +37,9 @@ describe('Selenium test', function seleniumTestDescribe() {
             .withCapabilities({browserName: 'chrome'})
             .build();
 
-        return IS_MOBILE || seUtil.screen.setSize(driver, 1024, 768);
+        if (!IS_MOBILE) {
+            seUtil.screen.setSize(driver, 1024, 768);
+        }
     });
 
     afterEach(() => driver.quit());
