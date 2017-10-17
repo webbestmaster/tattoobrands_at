@@ -14,13 +14,13 @@ describe('cli tests', () => {
     it('check categories', () =>
         checkCategories()
             .then(errors => assert.equal(errors.length, 0))
-    ).timeout(5e3);
+    ).timeout(60e3 * 10);
 
 
     it('check orders', () =>
         checkOrders()
             .then(errors => assert.equal(errors.length, 0))
-    ).timeout(5e3);
+    ).timeout(60e3 * 10);
 
 
     it('check static pages', () =>
