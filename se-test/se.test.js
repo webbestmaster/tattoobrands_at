@@ -71,7 +71,7 @@ describe('Selenium test', function seleniumTestDescribe() {
             );
 
         return driver.sleep(1000);
-    }).timeout(20e3);
+    }).timeout(30e3);
 
     it('Login', function Login() {
         driver.get(SITE_URL);
@@ -89,5 +89,5 @@ describe('Selenium test', function seleniumTestDescribe() {
             .then(isDisplayed => assert(isDisplayed, 'Element is NOT displayed'));
 
         return driver.sleep(1000);
-    }).timeout(20e3);
+    }).timeout(30e3);
 });
