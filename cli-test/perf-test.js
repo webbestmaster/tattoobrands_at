@@ -6,7 +6,9 @@ let numWorkers = 0;
 let ii = 0;
 
 if (cluster.isMaster) {
-    numWorkers = require('os').cpus().length;
+    // one client cpu core VS one server cpu core
+    numWorkers = 1;
+    // numWorkers = require('os').cpus().length;
 
     for (ii = 0; ii < numWorkers; ii += 1) {
         cluster.fork();
@@ -20,7 +22,7 @@ if (cluster.isMaster) {
 
 const options = {
     url: mainData.url.host,
-    maxRequests: 25
+    maxRequests: 100
 };
 
 loadtest.loadTest(options, (error, result) => error ?
