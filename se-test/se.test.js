@@ -14,26 +14,26 @@ const SITE_URL = mainData.url.host;
 const WEB_DRIVER_SERVER_URL = 'http://localhost:' + SERVER_PORT + '/wd/hub';
 
 // const webDriverData = {
-//     systemPath: 'webdriver.chrome.driver=./driver/' + OS_NAME + '/chromedriver',
+//     jvmArgs: ['-Dwebdriver.chrome.driver=./driver/' + OS_NAME + '/chromedriver'],
 //     capabilities: {
 //         browserName: 'chrome', chromeOptions: {args: ['--disable-extensions', '--disable-infobars']}
 //     }
 // };
 
 // const webDriverData = {
-//     systemPath: 'webdriver.gecko.driver=./driver/' + OS_NAME + '/geckodriver',
+//     jvmArgs: ['-Dwebdriver.gecko.driver=./driver/' + OS_NAME + '/geckodriver'],
 //     capabilities: {browserName: 'firefox'}
 // };
 
 const webDriverData = {
-    systemPath: 'webdriver.opera.driver=./driver/' + OS_NAME + '/operadriver',
+    jvmArgs: ['-Dwebdriver.opera.driver=./driver/' + OS_NAME + '/operadriver'],
     capabilities: {browserName: 'opera', operaOptions: {binary: '/usr/bin/opera'}}
 };
 
 // webdriver.enable.native.events=1
 const server = new SeleniumServer('./driver/selenium-server-standalone-3.6.0.jar', {
     port: SERVER_PORT,
-    jvmArgs: ['-D' + webDriverData.systemPath]
+    jvmArgs: webDriverData.jvmArgs
 });
 
 const WebDriver = require('selenium-webdriver');
