@@ -15,21 +15,20 @@ const WEB_DRIVER_SERVER_URL = 'http://localhost:' + SERVER_PORT + '/wd/hub';
 
 const webDriverData = {
     systemPath: 'webdriver.chrome.driver=./driver/' + OS_NAME + '/chromedriver',
-    capabilities: {browserName: 'chrome',
-        chromeOptions: {
-            args: [
-                '--disable-extensions',
-                '--disable-infobars'
-            ]
-        }
+    capabilities: {
+        browserName: 'chrome', chromeOptions: {args: ['--disable-extensions', '--disable-infobars']}
     }
 };
-//
+
 // const webDriverData = {
 //     systemPath: 'webdriver.gecko.driver=./driver/' + OS_NAME + '/geckodriver',
 //     capabilities: {browserName: 'firefox'}
 // };
-//
+
+// const webDriverData = {
+//     systemPath: 'webdriver.operablink.driver=./driver/' + OS_NAME + '/operadriver',
+//     capabilities: {browserName: 'opera'}
+// };
 
 // webdriver.enable.native.events=1
 const server = new SeleniumServer('./driver/selenium-server-standalone-3.6.0.jar', {
