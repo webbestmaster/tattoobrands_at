@@ -13,22 +13,22 @@ const IS_MOBILE = SERVER_PORT !== DESKTOP_SERVER_PORT;
 const SITE_URL = mainData.url.host;
 const WEB_DRIVER_SERVER_URL = 'http://localhost:' + SERVER_PORT + '/wd/hub';
 
-const webDriverData = {
-    systemPath: 'webdriver.chrome.driver=./driver/' + OS_NAME + '/chromedriver',
-    capabilities: {
-        browserName: 'chrome', chromeOptions: {args: ['--disable-extensions', '--disable-infobars']}
-    }
-};
+// const webDriverData = {
+//     systemPath: 'webdriver.chrome.driver=./driver/' + OS_NAME + '/chromedriver',
+//     capabilities: {
+//         browserName: 'chrome', chromeOptions: {args: ['--disable-extensions', '--disable-infobars']}
+//     }
+// };
 
 // const webDriverData = {
 //     systemPath: 'webdriver.gecko.driver=./driver/' + OS_NAME + '/geckodriver',
 //     capabilities: {browserName: 'firefox'}
 // };
 
-// const webDriverData = {
-//     systemPath: 'webdriver.operablink.driver=./driver/' + OS_NAME + '/operadriver',
-//     capabilities: {browserName: 'opera'}
-// };
+const webDriverData = {
+    systemPath: 'webdriver.opera.driver=./driver/' + OS_NAME + '/operadriver',
+    capabilities: {browserName: 'opera', operaOptions: {binary: '/usr/bin/opera'}}
+};
 
 // webdriver.enable.native.events=1
 const server = new SeleniumServer('./driver/selenium-server-standalone-3.6.0.jar', {
