@@ -41,7 +41,7 @@ const until = WebDriver.until;
 const byCss = WebDriver.By.css;
 let driver = null;
 
-describe('Selenium test', function seleniumTestDescribe() {
+describe('Selenium test', () => {
     if (!IS_MOBILE) {
         before(() => server.start());
     }
