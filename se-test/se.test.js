@@ -13,20 +13,20 @@ const IS_MOBILE = SERVER_PORT !== DESKTOP_SERVER_PORT;
 const SITE_URL = mainData.url.host;
 const WEB_DRIVER_SERVER_URL = 'http://localhost:' + SERVER_PORT + '/wd/hub';
 
-// const webDriverData = {
-//     name: 'chrome',
-//     systemPath: 'webdriver.chrome.driver=./driver/' + OS_NAME + '/chromedriver'
-// };
-
-// const webDriverData = {
-//     name: 'firefox',
-//     systemPath: 'webdriver.gecko.driver=./driver/' + OS_NAME + '/geckodriver'
-// };
-
 const webDriverData = {
-    name: 'opera',
-    systemPath: 'webdriver.opera.driver=./driver/' + OS_NAME + '/operadriver'
+    systemPath: 'webdriver.chrome.driver=./driver/' + OS_NAME + '/chromedriver',
+    capabilities: {browserName: 'chrome'}
 };
+//
+// const webDriverData = {
+//     systemPath: 'webdriver.gecko.driver=./driver/' + OS_NAME + '/geckodriver',
+//     capabilities: { browserName: 'firefox'}
+// };
+//
+// const webDriverData = {
+//     name: 'opera',
+//     systemPath: 'webdriver.opera.driver=./driver/' + OS_NAME + '/operadriver'
+// };
 
 const server = new SeleniumServer('./driver/selenium-server-standalone-3.6.0.jar', {
     port: SERVER_PORT,
@@ -49,7 +49,7 @@ describe('Selenium test', function seleniumTestDescribe() {
         driver = new WebDriver
             .Builder()
             .usingServer(WEB_DRIVER_SERVER_URL)
-            .withCapabilities({browserName: webDriverData.name})
+            .withCapabilities(webDriverData.capabilities)
             .build();
 
         if (!IS_MOBILE) {
